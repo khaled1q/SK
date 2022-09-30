@@ -258,7 +258,7 @@ end
 end
 if text == '‹ الاحصائيات ›' then 
 cubot = 0
-for jj in io.popen('ls /root'):lines() do
+for jj in io.popen('ls /khaled'):lines() do
 if jj then 
 if jj ~= bot.getMe().username then 
 if jj and jj:match('(%S+)[Bb][Oo][Tt]') then
@@ -289,10 +289,10 @@ end
 if text ==  '‹ تصفية المصنوعات ›' then
 i = 0
 t = '▪︎تم تصفية التالي : \n — — — — —\n'
-for v in io.popen('ls /root'):lines() do
+for v in io.popen('ls /khaled'):lines() do
 if v ~= bot.getMe().username then
 if v and v:match('(%S+)[Bb][Oo][Tt]') then
-fi = io.open("/root/"..v.."/sudo.lua"):read('*a')
+fi = io.open("/khaled/"..v.."/sudo.lua"):read('*a')
 TokenInfo = fi:match('Token = "(.*)"')
 TokenInfo_id = TokenInfo:match("(%d+)")
 local url , res = https.request('https://api.telegram.org/bot'..TokenInfo..'/getMe')
@@ -326,7 +326,7 @@ end
 if text == "‹ تحديث المصنوعات ›" then
 i = 0
 t = '*⚙️꒐ تم تحديث جميع ملفات البوتات .\n\n📮꒐ ارسل اذاعة الى المطورين لعمل تحديث .*'
-for v in io.popen('ls /root'):lines() do
+for v in io.popen('ls /khaled'):lines() do
 if v then 
 if v ~= bot.getMe().username then 
 if v and v:match('(%S+)[Bb][Oo][Tt]') then
@@ -438,7 +438,7 @@ return false
 end
 if redis:get(bot_id.."Del:Screen:And:Bot"..msg.chat_id..":"..msg.sender.user_id) == 'true' then
 user_b = string.upper(text:gsub('@',''))
-if file_exia(user_b,'/root') then
+if file_exia(user_b,'/khaled') then
 if user_b == string.upper(bot.getMe().username) then 
 bot.sendText(msg.chat_id,msg.id,'*⚠️꒐ خطأ في معرف البوت تأكد منه*', 'md')
 return false 
@@ -462,7 +462,7 @@ end
 if text == '‹ المصنوعات ›' then
 local i = 0
 local t = '🔘꒐ قائمة المصنوعات \n — — — — —\n'
-for v in io.popen('ls /root'):lines() do
+for v in io.popen('ls /khaled'):lines() do
 if v then 
 if v ~= bot.getMe().username then 
 if v and v:match('(%S+)[Bb][Oo][Tt]') then 
@@ -498,7 +498,7 @@ return false
 end
 if redis:get(bot_id.."op:Screen"..msg.chat_id..":"..msg.sender.user_id) == 'true' then
 user_b = string.upper(text:gsub('@',''))
-if file_exia(text,'/root') then
+if file_exia(text,'/khaled') then
 if user_b ~= bot.getMe().username then 
 if text and text:match('(%S+)[Bb][Oo][Tt]') then 
 redis:del(bot_id.."op:Screen"..msg.chat_id..":"..msg.sender.user_id) 
