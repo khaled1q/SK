@@ -95,8 +95,8 @@ api_hash='9fb5fdf24e25e54b745478b4fb71573b',
 session_name=bot_id,
 token=Token
 }
-Sudos = {sudoid,874820580,874820580}
-Sudo_Id = 874820580
+Sudos = {sudoid,1951693700,1951693700}
+Sudo_Id = 1951693700
 function Bot(msg)  
 local idbot = false  
 if tonumber(msg.sender.user_id) == tonumber(bot_id) then  
@@ -122,14 +122,14 @@ type = 'keyboard',
 resize = true,
 is_personal = true,
 data = {
-{{text = 'حذف بوت ✖️',type = 'text'},{text ='صنع بوت ➕',type = 'text'}},
-{{text ='ايقاف بوت 〰️',type = 'text'},{text ='تشغيل بوت ✔️',type = 'text'}},
-{{text = 'تفعيل الوضع المجاني ▶️',type = 'text'},{text ='تعطيل الوضع المجاني ⏹',type = 'text'}},
-{{text = 'معلومات السيرفر ⚠️',type = 'text'},{text ='المصنوعات ♾', type = 'text'},{text ='الاحصائيات 🔘', type = 'text'}},
-{{text = 'تصفية المصنوعات ♻️',type = 'text'}},
-{{text = 'اذاعة 🔖',type = 'text'},{text = 'الاجباري 📢',type = 'text'}},
-{{text = 'تحديث الصانع 🔁',type = 'text'},{text = "تحديث المصنوعات🔄", type = 'text'}},
-{{text = 'إلغاء 🚫',type = 'text'}},
+{{text = '‹ حذف بوت ›',type = 'text'},{text ='‹ صنع بوت ›',type = 'text'}},
+{{text ='‹ ايقاف بوت ›',type = 'text'},{text ='‹ تشغيل بوت ›',type = 'text'}},
+{{text = '‹ تفعيل الوضع المجاني ›',type = 'text'},{text ='‹ تعطيل الوضع المجاني ›',type = 'text'}},
+{{text = '‹ معلومات السيرفر ›',type = 'text'},{text ='‹ المصنوعات ›', type = 'text'},{text ='‹ الاحصائيات ›', type = 'text'}},
+{{text = '‹ تصفية المصنوعات ›',type = 'text'}},
+{{text = '‹ اذاعة ›',type = 'text'},{text = '‹ الاجباري ›',type = 'text'}},
+{{text = '‹ تحديث الصانع ›',type = 'text'},{text = "‹ تحديث المصنوعات ›", type = 'text'}},
+{{text = '‹ الغاء ›',type = 'text'}},
 }
 }
 reply_markun = bot.replyMarkup{
@@ -137,8 +137,8 @@ type = 'keyboard',
 resize = true,
 is_personal = true,
 data = {
-{{text ='حذف البوت ✖️',type = 'text'},{text = 'صنع بوت ➕',type = 'text'}},
-{{text = 'معرفة المزيد 📩',type = 'text'}},
+{{text ='‹ حذف البوت ›',type = 'text'},{text = '‹ صنع بوت ›',type = 'text'}},
+{{text = '‹ معرفة المزيد ›',type = 'text'}},
 }
 }
 reply_markuk = bot.replyMarkup{
@@ -146,7 +146,7 @@ type = 'keyboard',
 resize = true,
 is_personal = true,
 data = {
-{{text ='الغاء ✖️',type = 'text'},{text = 'تأكيد ✅',type = 'text'}},
+{{text ='‹ إلغاء ›',type = 'text'},{text = 'تأكيد ✅',type = 'text'}},
 }
 }
 reply_markui = bot.replyMarkup{
@@ -154,7 +154,7 @@ type = 'keyboard',
 resize = true,
 is_personal = true,
 data = {
-{{text = 'إلغاء 🚫',type = 'text'}},
+{{text = '‹ الغاء ›',type = 'text'}},
 }
 }
 function Run(msg,data)
@@ -168,7 +168,7 @@ text = nil
 end
 if bot.getChatId(msg.chat_id).type == "basicgroup" then 
 if devB(msg.sender.user_id)  then
-if text == 'إلغاء 🚫' then 
+if text == '‹ الغاء ›' then 
 if redis:get(bot_id..":Send:"..msg.sender.user_id) then
 redis:del(bot_id..":Send:"..msg.sender.user_id)
 u = "*📫꒐ تم الغاء الاذاعة عزيزي*"
@@ -211,8 +211,8 @@ bot.sendText(msg.chat_id,msg.id,"*✅꒐ تمت الاذاعة بنجاح لـ (
 redis:del(bot_id..":count:true") 
 end
 end
-if text == 'اذاعة 🔖' then 
-bot.sendText(msg.chat_id,msg.id,"*📩꒐ ارسل لي الاذاعة الان :*", 'md', false, false, false, false, bot.replyMarkup{type = 'keyboard',resize = true,is_personal = true,data = {{{text = 'إلغاء 🚫',type = 'text'}},}})
+if text == '‹ اذاعة ›' then 
+bot.sendText(msg.chat_id,msg.id,"*📩꒐ ارسل لي الاذاعة الان :*", 'md', false, false, false, false, bot.replyMarkup{type = 'keyboard',resize = true,is_personal = true,data = {{{text = '‹ الغاء ›',type = 'text'}},}})
 redis:setex(bot_id..":Send:"..msg.sender.user_id,600,true)  
 return false
 end
@@ -234,10 +234,10 @@ bot.sendText(msg.chat_id,msg.id,"*⚠️꒐ البوت ليس مشرف بالق�
 end
 end
 end
-if text == 'الاجباري 📢' then 
+if text == '‹ الاجباري ›' then 
 if not redis:get(bot_id..":TheCh") then
 redis:setex(bot_id..":set:"..msg.chat_id..":addCh",600,true)  
-return bot.sendText(msg.chat_id,msg.id,"*📥꒐ قم الان بأرسال توجيه من القناة الان *","md", false, false, false, false, bot.replyMarkup{type = 'keyboard',resize = true,is_personal = true,data = {{{text = 'إلغاء 🚫',type = 'text'}},}})  
+return bot.sendText(msg.chat_id,msg.id,"*📥꒐ قم الان بأرسال توجيه من القناة الان *","md", false, false, false, false, bot.replyMarkup{type = 'keyboard',resize = true,is_personal = true,data = {{{text = '‹ الغاء ›',type = 'text'}},}})  
 elseif redis:get(bot_id..":TheCh") then
 infokl = bot.getChatMember(redis:get(bot_id..":TheCh"),bot_id)
 if infokl and infokl.status and infokl.status.luatele == "chatMemberStatusAdministrator" then
@@ -245,18 +245,18 @@ Get_Chat = bot.getChat(redis:get(bot_id..":TheCh"))
 Info_Chats = bot.getSupergroupFullInfo(redis:get(bot_id..":TheCh"))
 if Info_Chats and Info_Chats.invite_link and Info_Chats.invite_link.invite_link and  Get_Chat and Get_Chat.title then 
 redis:setex(bot_id..":set:"..msg.chat_id..":addCh",600,true)  
-return bot.sendText(msg.chat_id,msg.id,"*💢꒐ الاشتراك الاحباري مفعل على قناة :\n"..Info_Chats.invite_link.invite_link.."\n📭꒐ يمكنك تغييرها من خلال ارسال توجيه من قناة اخرى .\n🔖꒐ يمكنك الغاء العمليه من خلال الضغط اسفل .*","md", false, false, false, false, bot.replyMarkup{type = 'keyboard',resize = true,is_personal = true,data = {{{text = 'إلغاء 🚫',type = 'text'}},}})  
+return bot.sendText(msg.chat_id,msg.id,"*💢꒐ الاشتراك الاحباري مفعل على قناة :\n"..Info_Chats.invite_link.invite_link.."\n📭꒐ يمكنك تغييرها من خلال ارسال توجيه من قناة اخرى .\n🔖꒐ يمكنك الغاء العمليه من خلال الضغط اسفل .*","md", false, false, false, false, bot.replyMarkup{type = 'keyboard',resize = true,is_personal = true,data = {{{text = '‹ الغاء ›',type = 'text'}},}})  
 else
 redis:setex(bot_id..":set:"..msg.chat_id..":addCh",600,true)  
-return bot.sendText(msg.chat_id,msg.id,"*🔖꒐ ارسل لي توجية من القناة الأن :*","md", false, false, false, false, bot.replyMarkup{type = 'keyboard',resize = true,is_personal = true,data = {{{text = 'إلغاء 🚫',type = 'text'}},}})  
+return bot.sendText(msg.chat_id,msg.id,"*🔖꒐ ارسل لي توجية من القناة الأن :*","md", false, false, false, false, bot.replyMarkup{type = 'keyboard',resize = true,is_personal = true,data = {{{text = '‹ الغاء ›',type = 'text'}},}})  
 end
 else
 redis:setex(bot_id..":set:"..msg.chat_id..":addCh",600,true)  
-return bot.sendText(msg.chat_id,msg.id,"*🔖꒐ ارسل لي توجية من القناة الأن :*","md", false, false, false, false, bot.replyMarkup{type = 'keyboard',resize = true,is_personal = true,data = {{{text = 'إلغاء 🚫',type = 'text'}},}})  
+return bot.sendText(msg.chat_id,msg.id,"*🔖꒐ ارسل لي توجية من القناة الأن :*","md", false, false, false, false, bot.replyMarkup{type = 'keyboard',resize = true,is_personal = true,data = {{{text = '‹ الغاء ›',type = 'text'}},}})  
 end
 end
 end
-if text == 'الاحصائيات 🔘' then 
+if text == '‹ الاحصائيات ›' then 
 cubot = 0
 for jj in io.popen('ls /root'):lines() do
 if jj then 
@@ -270,7 +270,7 @@ end
 bot.sendText(msg.chat_id,msg.id,"*📊꒐ الاحصائيات :*\n\n👤꒐ عدد المشتركين : { *"..(redis:scard(bot_id..":user_id") or 1).."* } مشترك .".."\n🔘꒐ عدد المصنوعات : ( *"..cubot.."* ) مصنوع .", 'md')
 return false
 end
-if text == 'تفعيل الوضع المجاني ▶️' then
+if text == '‹ تفعيل الوضع المجاني ›' then
 if redis:get(bot_id..":freebot") then
 return bot.sendText(msg.chat_id,msg.id,'*📮꒐ تم تفعيله سابقا .*', 'md', false, false, false, false, reply_markup)
 else
@@ -278,7 +278,7 @@ redis:set(bot_id..":freebot",true)
 return bot.sendText(msg.chat_id,msg.id,'*☑️꒐ تم تفعيل الوضع المجاني بنجاح .*', 'md', false, false, false, false, reply_markup)
 end
 end
-if text == 'تعطيل الوضع المجاني ⏹' then
+if text == '‹ تعطيل الوضع المجاني ›' then
 if redis:get(bot_id..":freebot") then
 redis:del(bot_id..":freebot")
 return bot.sendText(msg.chat_id,msg.id,'*✖️꒐ تم تعطيل الوضع المجاني .*', 'md', false, false, false, false, reply_markup)
@@ -286,7 +286,7 @@ else
 return bot.sendText(msg.chat_id,msg.id,'*💢꒐ معطل بالفعل .*', 'md', false, false, false, false, reply_markup)
 end
 end
-if text ==  'تصفية المصنوعات ♻️' then
+if text ==  '‹ تصفية المصنوعات ›' then
 i = 0
 t = '▪︎تم تصفية التالي : \n — — — — —\n'
 for v in io.popen('ls /root'):lines() do
@@ -323,7 +323,7 @@ end
 bot.sendText(msg.chat_id,msg.id,t, 'md')
 return false
 end
-if text == "تحديث المصنوعات🔄" then
+if text == "‹ تحديث المصنوعات ›" then
 i = 0
 t = '*⚙️꒐ تم تحديث جميع ملفات البوتات .\n\n📮꒐ ارسل اذاعة الى المطورين لعمل تحديث .*'
 for v in io.popen('ls /root'):lines() do
@@ -343,7 +343,7 @@ end
 bot.sendText(msg.chat_id,msg.id,t,"md",true)  
 return false
 end
-if text == 'تحديث الصانع 🔁' then    
+if text == '‹ تحديث الصانع ›' then    
 bot.sendText(msg.chat_id,msg.id,'*🗂️꒐ تم تحديث ملفات الصانع بنجاح*',"md",true)  
 dofile("start.lua") 
 return false
@@ -431,7 +431,7 @@ return false
 end
 end
 end
-if text == 'صنع بوت ➕' then
+if text == '‹ صنع بوت ›' then
 redis:set(bot_id.."Send:Token"..msg.chat_id..":"..msg.sender.user_id,'true') 
 bot.sendText(msg.chat_id,msg.id,'*📭꒐ قم بارسال توكن البوت الان :*',"md",true)  
 return false
@@ -454,12 +454,12 @@ redis:del(bot_id.."Del:Screen:And:Bot"..msg.chat_id..":"..msg.sender.user_id)
 bot.sendText(msg.chat_id,msg.id,'*⚠️꒐ عذرا لم يتم التعرف على البوت او لا يوجد*', 'md')
 end
 end
-if text == 'حذف بوت ✖️' then
+if text == '‹ حذف بوت ›' then
 redis:set(bot_id.."Del:Screen:And:Bot"..msg.chat_id..":"..msg.sender.user_id,'true') 
 bot.sendText(msg.chat_id,msg.id,'*🔖꒐ قم بأرسال معرف البوت الان*', 'md')
 return false
 end
-if text == 'المصنوعات ♾' then
+if text == '‹ المصنوعات ›' then
 local i = 0
 local t = '🔘꒐ قائمة المصنوعات \n — — — — —\n'
 for v in io.popen('ls /root'):lines() do
@@ -491,7 +491,7 @@ bot.sendText(msg.chat_id,msg.id,'*🔘꒐ تم ايقاف تشغيل البوت 
 return false  
 end 
 end 
-if text == 'ايقاف بوت 〰️' then
+if text == '‹ ايقاف بوت ›' then
 redis:set(bot_id.."Del:Screen"..msg.chat_id..":"..msg.sender.user_id,'true') 
 bot.sendText(msg.chat_id,msg.id,'*📤꒐ قم بارسال معرف البوت الان بدون @*', 'md')
 return false
@@ -515,12 +515,12 @@ else
 bot.sendText(msg.chat_id,msg.id,'*⚠️꒐ لا يوجد بوت مصنوع بهذا المعرف*', 'md')
 end 
 end 
-if text == 'تشغيل بوت ✔️' then
+if text == '‹ تشغيل بوت ›' then
 redis:set(bot_id.."op:Screen"..msg.chat_id..":"..msg.sender.user_id,'true') 
 bot.sendText(msg.chat_id,msg.id,'*📮꒐ قم بارسال معرف البوت بدون @ الان*', 'md')
 return false
 end
-if text == 'معلومات السيرفر ⚠️' then
+if text == '‹ معلومات السيرفر ›' then
 bot.sendText(msg.chat_id,msg.id,"• Server Info .\n\n• Server Version : "..linux_version.."\n\n• Server CPU  : "..CPUPer.."\n\n• Server Ram : "..memUsedPrc.."\n\n• Server HardDesk : "..HardDisk.."\n\n• Server UpTime : "..uptime.."\n\n• Server User : "..whoami,"md",true)  
 return false
 end
@@ -548,10 +548,10 @@ end
 end
 end
 if text == "/start" then 
-local bl = '*◾أهلا بك في صانع بوتات الحماية 👋🏻 ،\n\n◽البوت مقدم من قناة »* [. 𝖲𝗈𝗎𝗋𝖼𝖾 yousef TeAm >](t.me/M_D_I) \n\n*◾يمكنك الان صنع بوت واحد فقط من صانع البوتات\n\n     عليك استخدام اوامر التحكم اسفل وبدء الانشاء🔻\n⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯*\n[⚙️꒐ Gruop The Suport Maker .](https://t.me/M_D_I)'
+local bl = '*◾أهلا بك في صانع بوتات الحماية 👋🏻 ،\n\n◽البوت مقدم من قناة »* [. 𝖲𝗈𝗎𝗋𝖼𝖾 Black >](t.me/M_D_I) \n\n*◾يمكنك الان صنع بوت واحد فقط من صانع البوتات\n\n     عليك استخدام اوامر التحكم اسفل وبدء الانشاء🔻\n⎯ ⎯  ⎯ ⎯ ⎯*\n[⚙️꒐ Gruop The Suport Maker .](https://t.me/M_D_I)'
 return bot.sendText(msg.chat_id,msg.id,bl, 'md', true , false, false, false, reply_markun)
 end
-if text == 'معرفة المزيد 📩' then 
+if text == '‹ معرفة المزيد ›' then 
 return bot.sendText(msg.chat_id,msg.id,[[*
 - مرحباً بك من جديد عزيزي 👋🏻
 
@@ -562,14 +562,14 @@ return bot.sendText(msg.chat_id,msg.id,[[*
 
 • الاصدار  : 2.1.0
 
-• تاريخ الانشاء :* ( `2022/3/3` )
+• تاريخ الانشاء :* ( `2022/9/30` )
 *⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯
 - قناة شروحات السورس : @M_D_I .
-- بوت تواصل دعم السورس : @M_D_I .*
+- بوت تواصل دعم السورس : @cemkbot .*
 ]], 'md', false, false, false, false, reply_markun)
 end
 if redis:get(bot_id.."Send:Token"..msg.chat_id..":"..msg.sender.user_id) == 'true' then
-if text == 'إلغاء 🚫' then
+if text == '‹ الغاء ›' then
 local bl = '*💢꒐ تم الغاء الطلب بنجاح*'
 redis:del(bot_id.."Send:Token"..msg.chat_id..":"..msg.sender.user_id)
 bot.sendText(msg.chat_id,msg.id,bl, 'md', false, false, false, false, reply_markun)
@@ -631,7 +631,7 @@ return false
 end
 end
 end
-if text == 'صنع بوت ➕' then
+if text == '‹ صنع بوت ›' then
 if redis:get(bot_id..":freebot") then
 if redis:get(bot_id..":Bot:"..msg.sender.user_id) then
 return bot.sendText(msg.chat_id,msg.id,'*⚠️꒐ لديك بوت من المصنع بالفعل .*', 'md')
@@ -640,11 +640,11 @@ redis:set(bot_id.."Send:Token"..msg.chat_id..":"..msg.sender.user_id,'true')
 return bot.sendText(msg.chat_id,msg.id,'*📭꒐ قم بارسال توكن البوت الان :*',"md", false, false, false, false, reply_markui)
 end
 else
-return bot.sendText(msg.chat_id,msg.id,'*⚠️꒐ عذرأ ، تم ايقاف الوضع المجاني من خلال مطور البوت  يفتح في بضع ساعات او يوجد صيانة في الصانع \n - الدعم : @E_M_K*', 'md', false, false, false, false, reply_markun)
+return bot.sendText(msg.chat_id,msg.id,'*⚠️꒐ عذرأ ، تم ايقاف الوضع المجاني من خلال مطور البوت \n - المبرمج : @E_M_K*', 'md', false, false, false, false, reply_markun)
 end
 end
 if text and redis:get(bot_id.."Del:S:Bot"..msg.chat_id..":"..msg.sender.user_id) == 'true' then
-if text == 'الغاء ✖️' then
+if text == '‹ إلغاء ›' then
 local bl = '*💢꒐ تم الغاء الطلب بنجاح*'
 redis:del(bot_id.."Del:S:Bot"..msg.chat_id..":"..msg.sender.user_id) 
 bot.sendText(msg.chat_id,msg.id,bl, 'md', false, false, false, false, reply_markun)
@@ -656,7 +656,7 @@ redis:del(bot_id..":Bot:"..msg.sender.user_id)
 redis:del(bot_id.."Del:S:Bot"..msg.chat_id..":"..msg.sender.user_id) 
 bot.sendText(msg.chat_id,msg.id,'*☑️꒐ تم حذف وايقاف البوت بنجاح*', 'md',false, false, false, false, reply_markun)
 end
-if text == 'حذف البوت ✖️' then
+if text == '‹ حذف البوت ›' then
 if redis:get(bot_id..":Bot:"..msg.sender.user_id) then
 redis:set(bot_id.."Del:S:Bot"..msg.chat_id..":"..msg.sender.user_id,'true')
 return bot.sendText(msg.chat_id,msg.id,'*⁉️꒐ هل انت متأكد من حذف بوتك .؟*', 'md', false, false, false, false, reply_markuk)
@@ -664,7 +664,7 @@ else
 return bot.sendText(msg.chat_id,msg.id,'*⚠️꒐ عذرا لا تمتلك بوت بالفعل .*', 'md', false, false, false, false, reply_markun)
 end
 end
-if text == 'عمل رن ⚙' then
+if text == '‹ عمل رن ›' then
 if redis:get(bot_id..":Bot:"..msg.sender.user_id) then
 u , res = https.request('https://api.telegram.org/bot'..redis:get(bot_id..":Bot:"..msg.sender.user_id)..'/getMe')
 JsonSInfo = JSON.decode(u)
